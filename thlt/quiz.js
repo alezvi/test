@@ -3,6 +3,10 @@
 
 function THLT_Quiz() 
 {
+    this.validate = function() {
+        return false;
+    }
+    
     return {
       "questions" : [] 
     };
