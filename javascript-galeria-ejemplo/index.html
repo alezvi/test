@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css" rel="stylesheet" media="screen">
+		img {
+			height: 400px;
+			background-color: #AAA;
+			color: white;
+			font-weight: bold;
+		}
+	</style>
+	<script type="text/javascript">
+		/**
+		 * Un array con la lista de imagenes que quiero mostrar
+		 */
+		var photos = [
+			"http://placehold.it/250/0abc12",
+			"http://placehold.it/250/1def34",
+			"http://placehold.it/250/2acf56"
+		];	
+		
+		/**
+		 * La funcion recibe un parametro "str" que es la url de la imagen que quiero mostrar
+		 * Si no hay un elemento "img" con el id "target" en el html, lo crea
+		 * De lo contrario lo utiliza 
+		 * 
+		 */
+		function replaceImage(str) {
+			if (null == document.getElementById("target")) {
+				
+				// Creo un elemento del tio "img"
+				var image = document.createElement("img");
+				
+				// Lo inserto inmediatamente despues que abre la etiqueta "body"
+				document.body.appendChild(image);
+			} else {
+				// obtengo el elemento que ya existe
+				var image = document.getElementById("target");
+			}
+
+			// Le agrego el valor al atributo "src" de la etiquieta "img"
+			image.src = str;
+			
+			// Le agrego el id "target" para volver a utilizarlo posteriormente
+			image.id = "target";
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<button onclick="replaceImage(photos[0])">VER IMAGEN UNO</button>
+		<button onclick="replaceImage(photos[1])">VER IMAGEN DOS</button>
+		<button onclick="replaceImage(photos[2])">VER IMAGEN TRES</button>
+	</div>
+</body>
+</html>
